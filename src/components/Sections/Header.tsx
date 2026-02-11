@@ -37,7 +37,18 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
     const activeClass = classNames(baseClass, 'text-orange-500');
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
-      <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block" id={headerID}>
+      <header
+        className="fixed top-0 z-50 hidden w-full p-4 sm:block"
+        id={headerID}
+        style={{ 
+          backgroundImage: "url('/images/header-background.jpg')", 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center', 
+          backgroundRepeat: 'no-repeat', 
+          backgroundAttachment: 'fixed',
+          zIndex: -1 // Ensure the background is behind other elements
+        }}
+      >
         <nav className="flex justify-center gap-x-8">
           {navSections.map(section => (
             <NavItem

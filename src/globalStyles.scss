@@ -49,3 +49,7 @@ th {
 th {
   font-weight: 600;
 }
+
+header {
+  background-color: transparent !important; /* Ensure no background color overrides the image */
+}

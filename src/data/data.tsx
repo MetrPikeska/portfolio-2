@@ -1,11 +1,8 @@
 import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
   SparklesIcon,
+  MapIcon,
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
@@ -13,28 +10,15 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import TwitterIcon from '../components/Icon/TwitterIcon';
-import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
+import profileImage from '../images/profile-pic.jpg';
 import testimonialImage from '../images/testimonial.webp';
+
 import {
   About,
   ContactSection,
   ContactType,
   Hero,
   HomepageMeta,
-  PortfolioItem,
-  SkillGroup,
   Social,
   TestimonialSection,
   TimelineItem,
@@ -68,28 +52,25 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Hero section
  */
 export const heroData: Hero = {
-  imageSrc: heroImage,
-  name: `I'm Metr Pikeska.`,
+  name: 'Petr Mikeska',
+  imageSrc: profileImage, // Added missing property
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a passionate <strong className="text-stone-100">Software Developer</strong> with expertise in building modern web applications.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time, I enjoy <strong className="text-stone-100">exploring new technologies</strong>, contributing to open-source projects, and <strong className="text-stone-100">traveling</strong>.
+        Specializuji se na GIS analýzy, webovou kartografii, prostorové databáze a automatizaci GIS workflow. Mám zkušenosti s vývojem webových mapových aplikací a analýzou obrazových dat.
       </p>
     </>
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
-      text: 'Resume',
+      href: '/resume.pdf',
+      text: 'Životopis',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
     {
       href: `#${SectionId.Contact}`,
-      text: 'Contact',
+      text: 'Kontakt',
       primary: false,
     },
   ],
@@ -99,162 +80,153 @@ export const heroData: Hero = {
  * About section
  */
 export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `I am a dedicated developer with a strong background in creating efficient and scalable web solutions. I thrive on solving complex problems and delivering high-quality results.`,
+  profileImageSrc: profileImage,
+  description: `Jsem geoinformatik s odborností v GIS analýzách, webové kartografii a prostorových databázích. Zaměřuji se na propojení GIS, databází a webových technologií, včetně automatizace GIS workflow a analýzy obrazových dat.`,
   aboutItems: [
-    {label: 'Location', text: 'Prague, Czech Republic', Icon: MapIcon},
-    {label: 'Age', text: '30', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Czech', Icon: FlagIcon},
-    {label: 'Interests', text: 'Coding, Traveling, Photography', Icon: SparklesIcon},
-    {label: 'Study', text: 'Charles University', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Freelance Developer', Icon: BuildingOffice2Icon},
+    {label: 'Studium', text: 'Univerzita Palackého v Olomouci (Bc., Mgr.)', Icon: AcademicCapIcon},
+    {label: 'Lokalita', text: 'Čeladná / Olomouc, 73912', Icon: MapIcon},
+    {label: 'Technologie', text: 'Python, PostGIS, Leaflet, OpenCV', Icon: SparklesIcon},
   ],
 };
 
-/**
- * Skills section
- */
-export const skills: SkillGroup[] = [
+export const specializationData = [
+  {title: 'GIS analýzy', description: 'Vektorové, rastrové a síťové analýzy.'},
+  {title: 'Webová kartografie', description: 'Vývoj interaktivních mapových aplikací.'},
+  {title: 'Prostorové databáze', description: 'PostGIS, Spatial SQL, optimalizace dotazů.'},
+  {title: 'Automatizace GIS', description: 'Python, GDAL, automatizace workflow.'},
+  {title: 'Computer Vision', description: 'Analýza obrazových a video dat pomocí OpenCV a YOLO.'},
+];
+
+export const skillsData = [
   {
-    name: 'Spoken languages',
+    name: 'GIS & Data',
     skills: [
-      {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
+      { name: 'QGIS', level: 80 },
+      { name: 'ArcGIS Pro', level: 75 },
+      { name: 'PostGIS', level: 85 },
+      { name: 'GDAL', level: 70 },
+      { name: 'GeoJSON', level: 90 },
+      { name: 'WMS/WFS', level: 80 },
     ],
   },
   {
-    name: 'Frontend development',
+    name: 'Programování',
     skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
+      { name: 'Python', level: 90 },
+      { name: 'JavaScript', level: 70 },
+      { name: 'C# (základy)', level: 50 },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Web',
     skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
+      { name: 'HTML', level: 85 },
+      { name: 'CSS', level: 80 },
+      { name: 'Leaflet', level: 75 },
+      { name: 'REST API', level: 70 },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'AI & Computer Vision',
     skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
+      { name: 'YOLO', level: 65 },
+      { name: 'OpenCV', level: 70 },
+    ],
+  },
+  {
+    name: 'Databáze',
+    skills: [
+      { name: 'PostgreSQL', level: 85 },
+      { name: 'Návrh schémat', level: 75 },
+      { name: 'Optimalizace SQL dotazů', level: 80 },
     ],
   },
 ];
 
-/**
- * Portfolio section
- */
-export const portfolioItems: PortfolioItem[] = [
+export const projectsData = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
+    title: 'GIS toolbox pro hodnocení dostupnosti zelených ploch ve městech',
+    description: 'Bakalářská práce zaměřená na vývoj nástrojů pro GIS analýzy.',
+    technologies: ['Python', 'QGIS'],
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
+    title: 'GEOTE Klima',
+    description: 'Webová platforma pro klimatická data (PostGIS + REST API + web).',
+    technologies: ['PostGIS', 'REST API', 'JavaScript'],
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
+    title: 'VYGEO OPALENA',
+    description: 'Webový GIS pro správu lyžařského areálu (GIS, IoT, AI – YOLO).',
+    technologies: ['GIS', 'IoT', 'YOLO'],
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
+    title: 'Kartografická analýza znečištění ovzduší v Moravskoslezském kraji',
+    description: 'Analýza a vizualizace dat o znečištění ovzduší.',
+    technologies: ['Python', 'GIS'],
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
+    title: 'Ski Cam Analytics',
+    description: 'AI analýza kamerových dat.',
+    technologies: ['OpenCV', 'YOLO'],
   },
   {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
+    title: 'Geo Places Quiz',
+    description: 'Interaktivní geografický webový kvíz.',
+    technologies: ['JavaScript', 'Leaflet'],
+  },
+];
+
+export const portfolioItems = [
+  {
+    title: 'GIS toolbox pro hodnocení dostupnosti zelených ploch ve městech',
+    description: 'Bakalářská práce zaměřená na vývoj nástrojů pro GIS analýzy.',
+    image: '/images/portfolio1.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
   {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
+    title: 'GEOTE Klima',
+    description: 'Webová platforma pro klimatická data (PostGIS + REST API + web).',
+    image: '/images/portfolio2.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
   {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
+    title: 'VYGEO OPALENA',
+    description: 'Webový GIS pro správu lyžařského areálu (GIS, IoT, AI – YOLO).',
+    image: '/images/portfolio3.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
   {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
+    title: 'Kartografická analýza znečištění ovzduší v Moravskoslezském kraji',
+    description: 'Analýza a vizualizace dat o znečištění ovzduší.',
+    image: '/images/portfolio4.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
   {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
+    title: 'Ski Cam Analytics',
+    description: 'AI analýza kamerových dat.',
+    image: '/images/portfolio5.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
   {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
+    title: 'Geo Places Quiz',
+    description: 'Interaktivní geografický webový kvíz.',
+    image: '/images/portfolio6.jpg',
+    width: 800, // Added width property
+    height: 600, // Added height property
   },
+];
+
+export const servicesData = [
+  {title: 'GIS a prostorové analýzy', description: 'Vektorové, rastrové a síťové analýzy.'},
+  {title: 'Webová kartografie', description: 'Vývoj interaktivních mapových aplikací.'},
+  {title: 'Databáze a správa dat', description: 'Návrh databázových schémat, optimalizace dotazů.'},
+  {title: 'Computer Vision', description: 'Analýza obrazových a video dat.'},
+  {title: '3D data a terénní modely', description: 'Práce s DEM/DSM a 3D vizualizace.'},
 ];
 
 /**
@@ -262,39 +234,43 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'zář 2025 - současnost',
+    location: 'Univerzita Palackého v Olomouci',
+    title: 'Mgr. (Geoinformatika a kartografie)',
+    content: <p>Pokračující magisterské studium se zaměřením na analýzu prostorových dat.</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'zář 2022 - srp 2025',
+    location: 'Univerzita Palackého v Olomouci',
+    title: 'Bc. (Geoinformatika a kartografie)',
+    content: <p>Bakalářské studium, včetně tvorby GIS toolboxu pro výpočet docházkové vzdálenosti.</p>,
+  },
+  {
+    date: 'zář 2018 - zář 2022',
+    location: 'Střední škola informačních technologií s.r.o.',
+    title: 'Středoškolské vzdělání',
+    content: <p>Studium informačních technologií.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'únor 2025 - současnost',
+    location: 'Skymaps s.r.o.',
+    title: 'Analytik GIS',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Zpracování satelitních snímků, analýza obrazových dat, tvorba tematických map a automatizace procesů pomocí Pythonu.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'květen 2023 - současnost',
+    location: 'Univerzita Palackého v Olomouci',
+    title: 'Správce webu',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Správa aktualizací a obsahu webových stránek, řešení chyb a implementace oprav.
       </p>
     ),
   },
@@ -329,28 +305,28 @@ export const testimonial: TestimonialSection = {
  */
 
 export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  headerText: 'Kontaktujte mě',
+  description: 'Pokud máte jakékoliv dotazy nebo nabídky, neváhejte mě kontaktovat.',
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'piter.mikeska@gmail.com',
+      href: 'mailto:piter.mikeska@gmail.com',
+    },
+    {
+      type: ContactType.Phone,
+      text: '+420 773 426 330',
+      href: 'tel:+420773426330',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
-    },
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      text: 'Čeladná / Olomouc, 73912',
+      href: 'https://www.google.com/maps',
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'Github',
+      href: 'https://github.com/',
     },
   ],
 };
